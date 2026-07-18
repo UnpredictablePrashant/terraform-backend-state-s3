@@ -1,0 +1,15 @@
+# The defaults work without a tfvars file. Override only what your environment needs.
+aws_region         = "ap-south-1"
+bucket_name_prefix = "terraform-state"
+
+# Use this only when you require a specific globally unique bucket name.
+# bucket_name = "my-company-terraform-state"
+
+# DynamoDB locking is deprecated by Terraform. Leave this false for Terraform >= 1.10.
+create_dynamodb_lock_table = false
+dynamodb_table_name        = "terraform-state-lock"
+
+tags = {
+  Environment = "shared"
+  Owner       = "platform-team"
+}
